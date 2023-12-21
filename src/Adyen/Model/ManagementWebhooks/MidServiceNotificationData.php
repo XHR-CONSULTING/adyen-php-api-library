@@ -548,7 +548,7 @@ class MidServiceNotificationData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets status
      *
-     * @param string $status The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **dataRequired**: the request is in a draft state because the required KYC data are missing. To check what data are missing, [get the details of the legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/get/legalEntities/_id_). * **capabilityPending**: the **receivePayments** capability is not allowed. * **updatesExpected**: the **receivePayments** capability is not allowed and the required KYC data are missing. To check what data are missing, [get the details of the legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/get/legalEntities/_id_).
+     * @param string $status The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed.
      *
      * @return self
      */

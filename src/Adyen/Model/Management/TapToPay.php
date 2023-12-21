@@ -19,7 +19,7 @@ use \ArrayAccess;
 use Adyen\Model\Management\ObjectSerializer;
 
 /**
- * StoreSplitConfiguration Class Doc Comment
+ * TapToPay Class Doc Comment
  *
  * @category Class
  * @package  Adyen
@@ -27,7 +27,7 @@ use Adyen\Model\Management\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StoreSplitConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
+class TapToPay implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -36,7 +36,7 @@ class StoreSplitConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StoreSplitConfiguration';
+    protected static $openAPIModelName = 'TapToPay';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -44,8 +44,7 @@ class StoreSplitConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'balanceAccountId' => 'string',
-        'splitConfigurationId' => 'string'
+        'merchantDisplayName' => 'string'
     ];
 
     /**
@@ -56,8 +55,7 @@ class StoreSplitConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'balanceAccountId' => null,
-        'splitConfigurationId' => null
+        'merchantDisplayName' => null
     ];
 
     /**
@@ -66,8 +64,7 @@ class StoreSplitConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static $openAPINullables = [
-        'balanceAccountId' => false,
-        'splitConfigurationId' => false
+        'merchantDisplayName' => false
     ];
 
     /**
@@ -156,8 +153,7 @@ class StoreSplitConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'balanceAccountId' => 'balanceAccountId',
-        'splitConfigurationId' => 'splitConfigurationId'
+        'merchantDisplayName' => 'merchantDisplayName'
     ];
 
     /**
@@ -166,8 +162,7 @@ class StoreSplitConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'balanceAccountId' => 'setBalanceAccountId',
-        'splitConfigurationId' => 'setSplitConfigurationId'
+        'merchantDisplayName' => 'setMerchantDisplayName'
     ];
 
     /**
@@ -176,8 +171,7 @@ class StoreSplitConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'balanceAccountId' => 'getBalanceAccountId',
-        'splitConfigurationId' => 'getSplitConfigurationId'
+        'merchantDisplayName' => 'getMerchantDisplayName'
     ];
 
     /**
@@ -237,8 +231,7 @@ class StoreSplitConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('balanceAccountId', $data ?? [], null);
-        $this->setIfExists('splitConfigurationId', $data ?? [], null);
+        $this->setIfExists('merchantDisplayName', $data ?? [], null);
     }
 
     /**
@@ -284,55 +277,28 @@ class StoreSplitConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets balanceAccountId
+     * Gets merchantDisplayName
      *
      * @return string|null
      */
-    public function getBalanceAccountId()
+    public function getMerchantDisplayName()
     {
-        return $this->container['balanceAccountId'];
+        return $this->container['merchantDisplayName'];
     }
 
     /**
-     * Sets balanceAccountId
+     * Sets merchantDisplayName
      *
-     * @param string|null $balanceAccountId The [unique identifier of the balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id) to which the split amount must be booked, depending on the defined [split logic](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/_merchantId_/splitConfigurations#request-rules-splitLogic).
+     * @param string|null $merchantDisplayName Platform merchants can customize the text that appears on the TapToPay screen during a transaction
      *
      * @return self
      */
-    public function setBalanceAccountId($balanceAccountId)
+    public function setMerchantDisplayName($merchantDisplayName)
     {
-        if (is_null($balanceAccountId)) {
-            throw new \InvalidArgumentException('non-nullable balanceAccountId cannot be null');
+        if (is_null($merchantDisplayName)) {
+            throw new \InvalidArgumentException('non-nullable merchantDisplayName cannot be null');
         }
-        $this->container['balanceAccountId'] = $balanceAccountId;
-
-        return $this;
-    }
-
-    /**
-     * Gets splitConfigurationId
-     *
-     * @return string|null
-     */
-    public function getSplitConfigurationId()
-    {
-        return $this->container['splitConfigurationId'];
-    }
-
-    /**
-     * Sets splitConfigurationId
-     *
-     * @param string|null $splitConfigurationId The unique identifier of the [split configuration profile](https://docs.adyen.com/marketplaces-and-platforms/automatic-split-configuration/create-split-configuration/).
-     *
-     * @return self
-     */
-    public function setSplitConfigurationId($splitConfigurationId)
-    {
-        if (is_null($splitConfigurationId)) {
-            throw new \InvalidArgumentException('non-nullable splitConfigurationId cannot be null');
-        }
-        $this->container['splitConfigurationId'] = $splitConfigurationId;
+        $this->container['merchantDisplayName'] = $merchantDisplayName;
 
         return $this;
     }

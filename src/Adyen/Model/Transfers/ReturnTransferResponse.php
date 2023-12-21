@@ -387,7 +387,7 @@ class ReturnTransferResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets status
      *
-     * @param string|null $status The resulting status of the return.  For example: **authorised**, **booked**, **error**.
+     * @param string|null $status The resulting status of the return.  Possible values: **Authorised**, **Declined**.
      *
      * @return self
      */

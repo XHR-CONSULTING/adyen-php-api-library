@@ -51,7 +51,7 @@ class TransferData implements ModelInterface, ArrayAccess, \JsonSerializable
         'balances' => '\Adyen\Model\TransferWebhooks\BalanceMutation[]',
         'category' => 'string',
         'categoryData' => '\Adyen\Model\TransferWebhooks\TransferDataCategoryData',
-        'counterparty' => '\Adyen\Model\TransferWebhooks\CounterpartyV3',
+        'counterparty' => '\Adyen\Model\TransferWebhooks\TransferNotificationCounterParty',
         'creationDate' => '\DateTime',
         'description' => 'string',
         'direction' => 'string',
@@ -969,7 +969,7 @@ class TransferData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets counterparty
      *
-     * @return \Adyen\Model\TransferWebhooks\CounterpartyV3|null
+     * @return \Adyen\Model\TransferWebhooks\TransferNotificationCounterParty|null
      */
     public function getCounterparty()
     {
@@ -979,7 +979,7 @@ class TransferData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets counterparty
      *
-     * @param \Adyen\Model\TransferWebhooks\CounterpartyV3|null $counterparty counterparty
+     * @param \Adyen\Model\TransferWebhooks\TransferNotificationCounterParty|null $counterparty counterparty
      *
      * @return self
      */

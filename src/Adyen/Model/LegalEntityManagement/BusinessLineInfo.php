@@ -261,7 +261,6 @@ class BusinessLineInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     public const CAPABILITY_RECEIVE_FROM_PLATFORM_PAYMENTS = 'receiveFromPlatformPayments';
     public const CAPABILITY_ISSUE_BANK_ACCOUNT = 'issueBankAccount';
     public const SERVICE_PAYMENT_PROCESSING = 'paymentProcessing';
-    public const SERVICE_ISSUING = 'issuing';
     public const SERVICE_BANKING = 'banking';
 
     /**
@@ -286,7 +285,6 @@ class BusinessLineInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::SERVICE_PAYMENT_PROCESSING,
-            self::SERVICE_ISSUING,
             self::SERVICE_BANKING,
         ];
     }
@@ -517,7 +515,7 @@ class BusinessLineInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets service
      *
-     * @param string $service The service for which you are creating the business line.  Possible values: **paymentProcessing**, **issuing**, **banking**
+     * @param string $service The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**
      *
      * @return self
      */
