@@ -495,7 +495,7 @@ class RestServiceError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets response
      *
-     * @param object|null $response JSON response payload.
+     * @param object|null $response response
      *
      * @return self
      */

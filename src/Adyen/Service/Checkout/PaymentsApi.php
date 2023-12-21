@@ -70,21 +70,6 @@ class PaymentsApi extends Service
     }
 
     /**
-    * Start a transaction for donations
-    *
-    * @param \Adyen\Model\Checkout\DonationPaymentRequest $donationPaymentRequest
-    * @param array|null $requestOptions
-    * @return \Adyen\Model\Checkout\DonationPaymentResponse
-    * @throws AdyenException
-    */
-    public function donations(\Adyen\Model\Checkout\DonationPaymentRequest $donationPaymentRequest, array $requestOptions = null): \Adyen\Model\Checkout\DonationPaymentResponse
-    {
-        $endpoint = $this->baseURL . "/donations";
-        $response = $this->requestHttp($endpoint, strtolower('POST'), (array) $donationPaymentRequest->jsonSerialize(), $requestOptions);
-        return ObjectSerializer::deserialize($response, \Adyen\Model\Checkout\DonationPaymentResponse::class);
-    }
-
-    /**
     * Get a list of available payment methods
     *
     * @param \Adyen\Model\Checkout\PaymentMethodsRequest $paymentMethodsRequest

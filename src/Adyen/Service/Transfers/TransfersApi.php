@@ -57,15 +57,15 @@ class TransfersApi extends Service
     /**
     * Return a transfer
     *
-    * @param string $id
+    * @param string $transferId
     * @param \Adyen\Model\Transfers\ReturnTransferRequest $returnTransferRequest
     * @param array|null $requestOptions
     * @return \Adyen\Model\Transfers\ReturnTransferResponse
     * @throws AdyenException
     */
-    public function returnTransfer(string $id, \Adyen\Model\Transfers\ReturnTransferRequest $returnTransferRequest, array $requestOptions = null): \Adyen\Model\Transfers\ReturnTransferResponse
+    public function returnTransfer(string $transferId, \Adyen\Model\Transfers\ReturnTransferRequest $returnTransferRequest, array $requestOptions = null): \Adyen\Model\Transfers\ReturnTransferResponse
     {
-        $endpoint = $this->baseURL . str_replace(['{id}'], [$id], "/transfers/{id}/returns");
+        $endpoint = $this->baseURL . str_replace(['{transferId}'], [$transferId], "/transfers/{transferId}/returns");
         $response = $this->requestHttp($endpoint, strtolower('POST'), (array) $returnTransferRequest->jsonSerialize(), $requestOptions);
         return ObjectSerializer::deserialize($response, \Adyen\Model\Transfers\ReturnTransferResponse::class);
     }

@@ -419,7 +419,7 @@ class VerificationDeadline implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets capabilities
      *
-     * @param string[] $capabilities The names of the capabilities to be disallowed.
+     * @param string[] $capabilities The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline
      *
      * @return self
      */

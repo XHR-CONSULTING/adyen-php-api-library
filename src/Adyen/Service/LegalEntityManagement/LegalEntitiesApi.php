@@ -114,4 +114,19 @@ class LegalEntitiesApi extends Service
         $response = $this->requestHttp($endpoint, strtolower('POST'), null, $requestOptions);
         return ObjectSerializer::deserialize($response, \Adyen\Model\LegalEntityManagement\VerificationErrors::class);
     }
+
+    /**
+    * Confirm data review
+    *
+    * @param string $id
+    * @param array|null $requestOptions
+    * @return \Adyen\Model\LegalEntityManagement\DataReviewConfirmationResponse
+    * @throws AdyenException
+    */
+    public function confirmDataReview(string $id, array $requestOptions = null): \Adyen\Model\LegalEntityManagement\DataReviewConfirmationResponse
+    {
+        $endpoint = $this->baseURL . str_replace(['{id}'], [$id], "/legalEntities/{id}/confirmDataReview");
+        $response = $this->requestHttp($endpoint, strtolower('POST'), null, $requestOptions);
+        return ObjectSerializer::deserialize($response, \Adyen\Model\LegalEntityManagement\DataReviewConfirmationResponse::class);
+    }
 }

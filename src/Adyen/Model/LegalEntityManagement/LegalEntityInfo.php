@@ -52,7 +52,8 @@ class LegalEntityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'soleProprietorship' => '\Adyen\Model\LegalEntityManagement\SoleProprietorship',
         'trust' => '\Adyen\Model\LegalEntityManagement\Trust',
         'type' => 'string',
-        'unincorporatedPartnership' => '\Adyen\Model\LegalEntityManagement\UnincorporatedPartnership'
+        'unincorporatedPartnership' => '\Adyen\Model\LegalEntityManagement\UnincorporatedPartnership',
+        'verificationPlan' => 'string'
     ];
 
     /**
@@ -71,7 +72,8 @@ class LegalEntityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'soleProprietorship' => null,
         'trust' => null,
         'type' => null,
-        'unincorporatedPartnership' => null
+        'unincorporatedPartnership' => null,
+        'verificationPlan' => null
     ];
 
     /**
@@ -88,7 +90,8 @@ class LegalEntityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'soleProprietorship' => false,
         'trust' => false,
         'type' => false,
-        'unincorporatedPartnership' => false
+        'unincorporatedPartnership' => false,
+        'verificationPlan' => false
     ];
 
     /**
@@ -185,7 +188,8 @@ class LegalEntityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'soleProprietorship' => 'soleProprietorship',
         'trust' => 'trust',
         'type' => 'type',
-        'unincorporatedPartnership' => 'unincorporatedPartnership'
+        'unincorporatedPartnership' => 'unincorporatedPartnership',
+        'verificationPlan' => 'verificationPlan'
     ];
 
     /**
@@ -202,7 +206,8 @@ class LegalEntityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'soleProprietorship' => 'setSoleProprietorship',
         'trust' => 'setTrust',
         'type' => 'setType',
-        'unincorporatedPartnership' => 'setUnincorporatedPartnership'
+        'unincorporatedPartnership' => 'setUnincorporatedPartnership',
+        'verificationPlan' => 'setVerificationPlan'
     ];
 
     /**
@@ -219,7 +224,8 @@ class LegalEntityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'soleProprietorship' => 'getSoleProprietorship',
         'trust' => 'getTrust',
         'type' => 'getType',
-        'unincorporatedPartnership' => 'getUnincorporatedPartnership'
+        'unincorporatedPartnership' => 'getUnincorporatedPartnership',
+        'verificationPlan' => 'getVerificationPlan'
     ];
 
     /**
@@ -308,6 +314,7 @@ class LegalEntityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('trust', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('unincorporatedPartnership', $data ?? [], null);
+        $this->setIfExists('verificationPlan', $data ?? [], null);
     }
 
     /**
@@ -610,6 +617,33 @@ class LegalEntityInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable unincorporatedPartnership cannot be null');
         }
         $this->container['unincorporatedPartnership'] = $unincorporatedPartnership;
+
+        return $this;
+    }
+
+    /**
+     * Gets verificationPlan
+     *
+     * @return string|null
+     */
+    public function getVerificationPlan()
+    {
+        return $this->container['verificationPlan'];
+    }
+
+    /**
+     * Sets verificationPlan
+     *
+     * @param string|null $verificationPlan A key-value pair that specifies the [verification process](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details/) for a legal entity. Set to **upfront** for [upfront verification](https://docs.adyen.com/marketplaces-and-platforms/collect-verification-details#upfront).
+     *
+     * @return self
+     */
+    public function setVerificationPlan($verificationPlan)
+    {
+        if (is_null($verificationPlan)) {
+            throw new \InvalidArgumentException('non-nullable verificationPlan cannot be null');
+        }
+        $this->container['verificationPlan'] = $verificationPlan;
 
         return $this;
     }

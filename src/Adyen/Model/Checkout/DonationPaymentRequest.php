@@ -603,9 +603,6 @@ class DonationPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerial
             );
         }
 
-        if ($this->container['donationAccount'] === null) {
-            $invalidProperties[] = "'donationAccount' can't be null";
-        }
         if ($this->container['merchantAccount'] === null) {
             $invalidProperties[] = "'merchantAccount' can't be null";
         }
@@ -1071,7 +1068,7 @@ class DonationPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets donationAccount
      *
-     * @return string
+     * @return string|null
      */
     public function getDonationAccount()
     {
@@ -1081,7 +1078,7 @@ class DonationPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets donationAccount
      *
-     * @param string $donationAccount Donation account to which the transaction is credited.
+     * @param string|null $donationAccount Donation account to which the transaction is credited.
      *
      * @return self
      */

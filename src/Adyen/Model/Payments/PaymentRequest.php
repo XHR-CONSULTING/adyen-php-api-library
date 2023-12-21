@@ -529,6 +529,7 @@ class PaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     public const ENTITY_TYPE_NATURAL_PERSON = 'NaturalPerson';
     public const ENTITY_TYPE_COMPANY_NAME = 'CompanyName';
+    public const FUNDING_SOURCE_CREDIT = 'credit';
     public const FUNDING_SOURCE_DEBIT = 'debit';
     public const RECURRING_PROCESSING_MODEL_CARD_ON_FILE = 'CardOnFile';
     public const RECURRING_PROCESSING_MODEL_SUBSCRIPTION = 'Subscription';
@@ -558,6 +559,7 @@ class PaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getFundingSourceAllowableValues()
     {
         return [
+            self::FUNDING_SOURCE_CREDIT,
             self::FUNDING_SOURCE_DEBIT,
         ];
     }
